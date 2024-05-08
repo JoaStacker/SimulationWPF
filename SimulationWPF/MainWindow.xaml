@@ -17,21 +17,46 @@
         </StackPanel>
 
         <!-- HelixViewport3D for 3D rendering -->
-        <helix:HelixViewport3D ShowCoordinateSystem="True" ShowFrameRate="True" ZoomExtentsWhenLoaded="True" ZoomAroundMouseDownPoint="True" RotateAroundMouseDownPoint="True" IsTopBottomViewOrientedToFrontBack="True" IsViewCubeEdgeClicksEnabled="True" Margin="0,0,154,557">
+        <helix:HelixViewport3D ShowCoordinateSystem="True" ShowFrameRate="True" ZoomExtentsWhenLoaded="False" ZoomAroundMouseDownPoint="True" RotateAroundMouseDownPoint="True" IsTopBottomViewOrientedToFrontBack="True" IsViewCubeEdgeClicksEnabled="True" Margin="0,0,154,557">
             <!-- Default lights -->
             <helix:SunLight/>
 
             <!--  The content of this visual is defined in MainViewModel.cs  -->
-            <ModelVisual3D Content="{Binding AnimatedModel}" />
+            <!--<ModelVisual3D Content="{Binding AnimatedModel}">
+                --><!-- Define a new animation --><!--
+                <ModelVisual3D.Transform>
+                    <TranslateTransform3D x:Name="MyTranslateTransform3D"   OffsetX="0" OffsetY="0" OffsetZ="0" />
+                </ModelVisual3D.Transform>
+            </ModelVisual3D>-->
+
+            <helix:FileModelVisual3D x:Name="model1" Source="C:\Users\joess\source\repos\SimulationWPF\SimulationWPF\Models\tolva_metal.obj"/>
 
             <!--  You can also add elements here in the xaml  -->
             <helix:GridLinesVisual3D
-                 Width="8"
-                 Length="8"
-                 MajorDistance="1"
-                 MinorDistance="1"
-                 Thickness="0.01" />
+                     Width="50"
+                     Length="50"
+                     MajorDistance="1"
+                     MinorDistance="1"
+                     Thickness="0.003" />
+            
+            <!-- Define the triggers for animations -->
+            <!--<helix:HelixViewport3D.Triggers>
+                <EventTrigger RoutedEvent="helix:HelixViewport3D.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                            Storyboard.TargetName="MyTranslateTransform3D"
+                            Storyboard.TargetProperty="OffsetX"
+                            To="10"
+                            AutoReverse="True" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </helix:HelixViewport3D.Triggers>-->
+            
         </helix:HelixViewport3D>
+        
+        <!-- Incorporate Windows Forms like this: -->
         <wfi:WindowsFormsHost Margin="80,244,796,469" Foreground="#FFE6E6E6" Background="#FF322077" ChildChanged="WindowsFormsHost_ChildChanged">
             <wf:Button Text="Tolva" Click="Button_Click_1"/>
         </wfi:WindowsFormsHost>

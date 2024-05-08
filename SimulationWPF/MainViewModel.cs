@@ -54,9 +54,10 @@ namespace SimulationWPF
             //// Set the property, which will be bound to the Content property of the ModelVisual3D (see MainWindow.xaml)
             //this.Model = modelGroup;
 
-            // Load your animated model here
-            var loader = new HelixToolkit.Wpf.ModelImporter();
-            AnimatedModel = loader.Load("C:\\Users\\joess\\source\\repos\\SimulationWPF\\SimulationWPF\\3d\\test_animated_cube.obj");
+            //// Load your animated model here
+            //var loader = new HelixToolkit.Wpf.ModelImporter();
+            //AnimatedModel = loader.Load("C:\\Users\\joess\\source\\repos\\SimulationWPF\\SimulationWPF\\3d\\tolva_metal.obj");
+            //HelixToolkit.Wpf.AnimationExtensions.AnimateOpacity(AnimatedModel, 30, 1000);
         }
 
         /// <summary>

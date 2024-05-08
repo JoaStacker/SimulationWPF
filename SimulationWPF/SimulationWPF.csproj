@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="3d\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
